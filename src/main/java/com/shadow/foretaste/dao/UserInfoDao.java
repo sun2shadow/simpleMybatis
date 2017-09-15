@@ -15,4 +15,22 @@ public interface UserInfoDao {
      * @return 
      */
     UserInfo getUserInfoById(int id);
+    /**
+     * 插入一条语句
+     * @param userInfo
+     * @return 
+     */
+    UserInfo insertUser(UserInfo userInfo);
+    /**
+     * 根据i的获取手机号
+     * @param id
+     * @return 
+     */
+    String getPhoneNum(int id);
+    /**
+     * 获取用户信息和账户信息
+     * @param id
+     * @return 
+     */
+    UserInfo getInfoAndAccount(int id);
 }

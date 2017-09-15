@@ -6,5 +6,27 @@
     <select id="getUserInfoById" parameterType="int" resultType="com.shadow.foretaste.entity.UserInfo">
         select * from user_info where id = #{id}
     </select>
+    <select id="getPhoneNum" resultType="String">
+        select phone_num  from user_info where id = #{id}
+    </select>
+    <select id="getInfoAndAccount" resultMap="userResultMap">
+        select * from user_info
+        left outer join account on account.user_id = user_info.id
+        where user_info.id = #{id}
+    </select>
+    <insert id="insertUser" parameterType="com.shadow.foretaste.entity.UserInfo" useGeneratedKeys="true" keyProperty="id">
+        insert into user_info (id, nickname, phone_num) values (#{id}, #{nickname}, #{phoneNum})
+    </insert>
+
+    <resultMap id="userResultMap" type="com.shadow.foretaste.entity.UserInfo">
+        <id property="id" column="id"/>
+        <result property="nickname" column="nickname" />
+        <result property="phoneNum" column="phone_num" />
+        <association property="account" javaType="com.shadow.foretaste.entity.Account">
+            <id property="id" column="account_id"/>
+            <result property="userId" column="user_id" />
+            <result property="money" column="money" />
+        </association>
+    </resultMap>
 </mapper>
 

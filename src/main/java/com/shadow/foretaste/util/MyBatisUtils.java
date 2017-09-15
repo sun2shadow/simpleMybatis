@@ -20,9 +20,7 @@ public class MyBatisUtils {
     
     //初始化session工厂
     public static void initFactory() throws Exception{
-       LOG.log(Level.INFO, "------------===========");
         InputStream inputStream = Resources.getResourceAsStream("mybatis-config.xml");
-        LOG.info("==="+inputStream);
         factory = new SqlSessionFactoryBuilder().build(inputStream);
     }
     /**
@@ -38,7 +36,7 @@ public class MyBatisUtils {
                 ex.printStackTrace();
             }
         }
-        LOG.log(Level.INFO, "===="+(null==factory));
+        LOG.log(Level.INFO, "====factory"+(null==factory));
         return factory.openSession();
     }
 }

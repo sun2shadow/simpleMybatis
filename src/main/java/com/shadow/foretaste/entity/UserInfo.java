@@ -14,10 +14,10 @@ import java.util.Date;
 public class UserInfo {
     private int id;
     private String nickname;
-    private int phoneNum;
+    private String phoneNum;
     private Date createdTime;
     private Date lastUpdateTime;
-
+    private Account account; //用户的账户信息
     public int getId() {
         return id;
     }
@@ -34,13 +34,15 @@ public class UserInfo {
         this.nickname = nickname;
     }
 
-    public int getPhoneNum() {
+    public String getPhoneNum() {
         return phoneNum;
     }
 
-    public void setPhoneNum(int phoneNum) {
+    public void setPhoneNum(String phoneNum) {
         this.phoneNum = phoneNum;
     }
+
+    
 
     public Date getCreatedTime() {
         return createdTime;
@@ -58,9 +60,18 @@ public class UserInfo {
         this.lastUpdateTime = lastUpdateTime;
     }
 
+    public Account getAccount() {
+        return account;
+    }
+
+    public void setAccount(Account account) {
+        this.account = account;
+    }
+
+    
     @Override
     public String toString() {
-        return "UserInfo[id=" + id;
+        return "UserInfo[id=" + id + "]";
     }
     
     
